@@ -22,18 +22,44 @@
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <button id="openTaskModalButton" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+    
     </div>
-    <div id="taskModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <form id="taskForm">
-              <label for="taskName">Task Name:</label>
-              <input type="text" id="taskName" name="taskName" required>
-              <button type="submit">Add Task</button>
-          </form>
+   
+    <!-- Modal HTML -->
+    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="taskModalLabel">Add New Task</h5>
+                  <button id="xModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form id="taskForm">
+                      <div class="form-group">
+                          <label for="taskTitle">Title</label>
+                          <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title">
+                      </div>
+                      <div class="form-group">
+                          <label for="taskDueDate">Due Date</label>
+                          <input type="text" class="form-control" id="taskDueDate" placeholder="Select due date">
+                      </div>
+                      <div class="form-group">
+                          <label for="taskDescription">Description</label>
+                          <textarea class="form-control" id="taskDescription" rows="3" placeholder="Enter task description"></textarea>
+                      </div>
+
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="saveTask" type="button" class="btn btn-primary">Save Task</button>
+              </div>
+          </div>
       </div>
-    </div>
+  </div>
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
         <div id="to-do" class="card border-light mb-3 lane flex-grow-1">

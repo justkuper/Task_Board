@@ -1,56 +1,16 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-  }
-  
-  .swim-lanes {
-    min-height: 60vh;
-  }
-  
-  .task-card {
-    margin: 0 auto;
-  }
-  
-  .task-card:hover {
-    cursor: grab;
-  }
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+.swim-lanes {
+  min-height: 60vh;
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.task-card {
+  margin: 0 auto;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.task-card:hover {
+  cursor: grab;
 }
-
-  
