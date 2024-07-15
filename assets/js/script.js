@@ -1,18 +1,19 @@
-
+// Retrieves tasks from localStorage or returns an empty array if no tasks are stored.
 function getTasksfromStorage() {
     return JSON.parse(localStorage.getItem("tasks")) || [];
 
 }
+// Saves tasks to localStorage
 function saveTaskstoStorage(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-
+// Generates a unique task ID based on the current timestamp.
 function generateTaskId() {
     return Date.now();
 }
 
-
+// Creates an HTML representation (task card) for a given task object.
 function createTaskCard(task) {
     const newTaskCard = $("<div>");
     newTaskCard.addClass("card task-card my-3 draggable");
@@ -61,7 +62,7 @@ function createTaskCard(task) {
     return newTaskCard;
 }
 
-
+// Renders the task list by fetching tasks from localStorage and creating task cards for each task.
 function renderTaskList() {
     const tasks = getTasksfromStorage();
     const todoList = $('#todo-cards');
@@ -106,7 +107,7 @@ function renderTaskList() {
     });
 }
 
-
+// Handles adding a new task to localStorage and renders the updated task list.
 function handleAddTask(event) {
     event.preventDefault();
 
@@ -125,13 +126,15 @@ function handleAddTask(event) {
     renderTaskList();
 
 }
-
+// Handles deleting a task from localStorage by filtering tasks based on the task ID and then rendering the updated task list.
 function handleDeleteTask(id) {
     const tasks = getTasksfromStorage();
     const newTasks = tasks.filter(t => !(t && t.id && t.id === id))
     saveTaskstoStorage(newTasks);
     renderTaskList();
 }
+
+// Handles dropping a task into different status lanes (to-do, in-progress, done) by updating the task's status in localStorage and then rendering the updated task list.
 function handleDrop(event, ui) {
 
     const tasks = getTasksfromStorage();
@@ -154,11 +157,12 @@ function handleDrop(event, ui) {
 
 }
 
+// Sets up initial configuration and event listeners once the document (page) is fully loaded.
 $(document).ready(function () {
-
+    // Initializes date picker for task due date.
     renderTaskList();
     $("#taskDueDate").datepicker();
-
+    // Sets up modal behavior for showing/hiding task creation modal.
     $('#openTaskModalButton').on('click', function () {
         $('#taskModal').modal('show');
     });
@@ -175,7 +179,7 @@ $(document).ready(function () {
         $('#taskModal').modal('hide');
     });
 
-
+    // Configures drag-and-drop functionality for task cards among different status lanes (to-do, in-progress, done).
     $('.lane').droppable({
         accept: '.draggable',
         drop: handleDrop,
